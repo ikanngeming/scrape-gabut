@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://axios.rest/logo.svg" width="100" alt="Axios" />
   &nbsp;&nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cheerio/cheerio-original.svg" width="40" alt="Cheerio" />
+  <img src="https://cheerio.js.org/_astro/orange-c.C2HK-Zjb_SMe1d.svg" width="100" alt="Cheerio" />
 </p>
 
 <p align="center">
