@@ -1,1 +1,10 @@
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png" width="50" alt="Logo">
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-original.svg" width="40" alt="Axios" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cheerio/cheerio-original.svg" width="40" alt="Cheerio" />
+</p>
+
+<p align="center">
+  <b>Axios</b> &nbsp; • &nbsp; <b>Cheerio</b>
+</p>
