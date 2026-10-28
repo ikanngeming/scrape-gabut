@@ -6,5 +6,5 @@
 </p>
 
 <p align="center">
-  <b>Axios</b> &nbsp; • &nbsp; <b>Cheerio</b>
+  <b>Axios</b>&nbsp; &nbsp; • &nbsp; &nbsp;<b>Cheerio</b>
 </p>
