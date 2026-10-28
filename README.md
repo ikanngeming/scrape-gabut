@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://axios.rest/logo.svg" width="40" alt="Axios" />
+  <img src="https://axios.rest/logo.svg" width="60" alt="Axios" />
   &nbsp;&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cheerio/cheerio-original.svg" width="40" alt="Cheerio" />
 </p>
