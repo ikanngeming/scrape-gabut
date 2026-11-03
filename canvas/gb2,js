@@ -16,8 +16,8 @@ function roundRect(ctx, x, y, w, h, r, fill, stroke, lineWidth = 1) {
   if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lineWidth; ctx.stroke(); }
 }
 
-async function main({ title = 'SELAMAT DATANG', subtitle = 'Semoga Betah', group = 'Kayz x Masha || New Era', member = 'Member #291', output = 'welcome-blue.png' } = {}) {
-  GlobalFonts.registerFromPath(resolve(here, '../assets/DejaVuSans-Bold.ttf'), 'CanvasSans');
+async function main({ title = 'SELAMAT DATANG', subtitle = 'Semoga Betah', group = 'Kayz x Masha || New Era', member = 'Member #291', output = 'welcome-red.png' } = {}) {
+  GlobalFonts.registerFromPath(resolve(here, './assets/DejaVuSans-Bold.ttf'), 'CanvasSans');
   const background = await loadImage(await readFile(resolve(here, 'assets/reference.jpg')));
   const avatar = await loadImage(await readFile(resolve(here, 'assets/avatar.png')));
   const W = 1280, H = 720;
@@ -27,16 +27,16 @@ async function main({ title = 'SELAMAT DATANG', subtitle = 'Semoga Betah', group
   // Full-bleed reference artwork, softened and toned blue as a background layer.
   ctx.save(); ctx.filter = 'blur(2px)';
   ctx.drawImage(background, -4, -4, W + 8, H + 8); ctx.restore();
-  ctx.fillStyle = 'rgba(4, 28, 58, .75)'; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = 'rgba(48, 5, 16, .78)'; ctx.fillRect(0, 0, W, H);
   const vignette = ctx.createRadialGradient(640, 335, 80, 640, 360, 830);
-  vignette.addColorStop(0, 'rgba(0,26,55,.20)'); vignette.addColorStop(1, 'rgba(0,12,35,.63)');
+  vignette.addColorStop(0, 'rgba(50,5,14,.22)'); vignette.addColorStop(1, 'rgba(35,3,12,.67)');
   ctx.fillStyle = vignette; ctx.fillRect(0, 0, W, H);
 
   // Technical grid and corner brackets.
-  ctx.strokeStyle = 'rgba(91, 164, 187, .12)'; ctx.lineWidth = 1;
+  ctx.strokeStyle = 'rgba(200, 67, 78, .14)'; ctx.lineWidth = 1;
   for (let x = 48; x < W; x += 120) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
   for (let y = 0; y < H; y += 120) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-  ctx.strokeStyle = 'rgba(0, 230, 236, .35)'; ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(255, 62, 76, .43)'; ctx.lineWidth = 2;
   const corners = [
     [[50,50],[150,50],[150,150]], [[1230,50],[1130,50],[1130,150]],
     [[50,670],[150,670],[150,570]], [[1230,670],[1130,670],[1130,570]],
@@ -45,22 +45,22 @@ async function main({ title = 'SELAMAT DATANG', subtitle = 'Semoga Betah', group
 
   // Center translucent veil keeps the redrawn copy crisp over the photographic backdrop.
   const veil = ctx.createLinearGradient(0, 270, 0, 585);
-  veil.addColorStop(0, 'rgba(0,22,48,.18)'); veil.addColorStop(.5, 'rgba(0,25,52,.38)'); veil.addColorStop(1, 'rgba(0,20,45,.12)');
+  veil.addColorStop(0, 'rgba(45,5,13,.20)'); veil.addColorStop(.5, 'rgba(52,5,14,.40)'); veil.addColorStop(1, 'rgba(40,4,12,.15)');
   ctx.fillStyle = veil; ctx.fillRect(280, 280, 720, 310);
 
   // Avatar disc and cyan rings.
   ctx.save(); ctx.beginPath(); ctx.arc(640, 220, 99, 0, Math.PI * 2); ctx.clip();
   ctx.drawImage(avatar, 541, 121, 198, 198); ctx.restore();
   ctx.beginPath(); ctx.arc(640, 220, 105, 0, Math.PI * 2);
-  ctx.strokeStyle = '#00dce5'; ctx.lineWidth = 5; ctx.shadowColor = 'rgba(0,235,242,.4)'; ctx.shadowBlur = 10; ctx.stroke(); ctx.shadowBlur = 0;
+  ctx.strokeStyle = '#ff3548'; ctx.lineWidth = 5; ctx.shadowColor = 'rgba(255,48,65,.48)'; ctx.shadowBlur = 10; ctx.stroke(); ctx.shadowBlur = 0;
   ctx.beginPath(); ctx.arc(640, 220, 111, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(0,216,225,.28)'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,67,78,.36)'; ctx.lineWidth = 2; ctx.stroke();
 
   // Heading, divider, subtitle and group label.
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = '#00d8e5'; ctx.font = 'bold 54px CanvasSans, sans-serif';
+  ctx.fillStyle = '#ff3548'; ctx.font = 'bold 54px CanvasSans, sans-serif';
   ctx.fillText(fitText(ctx, title, 840), 640, 361);
-  ctx.strokeStyle = 'rgba(0,220,230,.8)'; ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(255,64,77,.82)'; ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(480, 400); ctx.lineTo(800, 400); ctx.stroke();
   ctx.fillStyle = '#f5f7fa'; ctx.font = 'bold 31px CanvasSans, sans-serif';
   ctx.fillText(fitText(ctx, subtitle, 700), 640, 429);
@@ -71,8 +71,8 @@ async function main({ title = 'SELAMAT DATANG', subtitle = 'Semoga Betah', group
   ctx.font = 'bold 23px CanvasSans, sans-serif';
   const memberText = fitText(ctx, member, 300);
   const pillWidth = Math.max(190, Math.ceil(ctx.measureText(memberText).width + 48));
-  roundRect(ctx, 640 - pillWidth / 2, 510, pillWidth, 44, 22, 'rgba(0,173,190,.24)', 'rgba(0,221,232,.42)', 1.5);
-  ctx.fillStyle = '#12dce6'; ctx.fillText(memberText, 640, 533);
+  roundRect(ctx, 640 - pillWidth / 2, 510, pillWidth, 44, 22, 'rgba(190,24,42,.32)', 'rgba(255,61,76,.55)', 1.5);
+  ctx.fillStyle = '#ff3b50'; ctx.fillText(memberText, 640, 533);
 
   await writeFile(resolve(here, output), canvas.toBuffer('image/png'));
   console.log(`Wrote ${resolve(here, output)} (${W}×${H})`);
